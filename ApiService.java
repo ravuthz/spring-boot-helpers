@@ -119,7 +119,9 @@ public abstract class ApiService {
     }
 
     public String requestOAuthTokenByRestTemplate() {
-        HttpHeaders headers = getDefaultHeaders();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         // Can combine with basic auth
         // headers.setBasicAuth(clientId, clientSecret);
 
